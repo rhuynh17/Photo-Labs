@@ -1,8 +1,6 @@
 // frontend/src/App.jsx
 import React from 'react';
-
- // import PhotoListItem from './components/PhotoListItem';
-import PhotoList from './components/PhotoList';
+import PhotoListItem from './components/PhotoListItem'; 
 import './App.scss';
 
 const sampleDataForPhotoListItem = {
@@ -18,9 +16,8 @@ const sampleDataForPhotoListItem = {
 
 const App = () => (
   <div className="App">
-<PhotoListItem photo={sampleDataForPhotoListItem} />
+    <PhotoListItem photo={sampleDataForPhotoListItem} />
   </div>
 );
-
 
 export default App;

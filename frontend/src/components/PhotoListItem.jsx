@@ -1,10 +1,8 @@
-import React from "react";
+import React from 'react';
+import '../styles/PhotoListItem.scss';
 
-import "../styles/PhotoListItem.scss";
-
-
-const PhotoListItem = () => {
-  const { username, imageSource, id, location , profile } = props;
+const PhotoListItem = (props) => {
+  const { username, imageSource, id, location, profile } = props.photo;
   return (
     <div className="photo-list-item" key={id}>
       <img src={imageSource} alt="Photo" className="photo" />
@@ -16,6 +14,5 @@ const PhotoListItem = () => {
     </div>
   );
 };
-
 
 export default PhotoListItem;
