@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/PhotoListItem.scss';
+import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const { username, imageSource, id, location, profile } = props.photo;
@@ -10,6 +11,7 @@ const PhotoListItem = (props) => {
         <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile" />
         <h3>{username}</h3>
         <p>{`${location.city}, ${location.country}`}</p>
+        <PhotoFavButton /> 
       </div>
     </div>
   );
