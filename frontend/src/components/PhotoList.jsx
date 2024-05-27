@@ -57,7 +57,6 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
-  const photos = new Array(3).fill(sampleDataForPhotoListItem);
   return (
     <ul className="photo-list">
       {sampleDataForPhotoList.map((photo) => (
