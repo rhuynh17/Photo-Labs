@@ -15,13 +15,15 @@
   &:hover {
     background-color: #DDDDDD; 
   }
+
+  &.active {
+    .photo-list__fav-icon-svg path {
+      fill: #C80000; 
+    }
+  }
 }
 
 .photo-list__fav-icon-svg {
   padding: 7px;
   top: 2px;
-}
-
-.photo-list__fav-icon.active .photo-list__fav-icon-svg path {
-  fill: #C80000;
 }
