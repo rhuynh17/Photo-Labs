@@ -1,4 +1,4 @@
-// topnavigationbar.jsx
+// TopNavigationBar.jsx
 import React from 'react';
 import FavBadge from './FavBadge';
 import TopicList from './TopicList';
@@ -11,7 +11,9 @@ const TopNavigationBar = () => {
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <div className="top-nav-bar__icons">
-        <TopicList />
+        <div className="top-nav-bar__topic-list"> 
+          <TopicList />
+        </div>
         <span className="top-nav-bar__icon">Total Liked</span>
         <FavBadge isFavPhotoExist={isFavPhotoExist} likedPhotosCount={likedPhotosCount} /> 
       </div>

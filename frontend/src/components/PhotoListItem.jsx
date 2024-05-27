@@ -9,12 +9,16 @@ const PhotoListItem = ({ photo }) => {
   
   return (
     <div className="photo-list__item" key={photo.id}>
+      <div className="photo-list__like-button">
+        <PhotoFavButton />
+      </div>
       <img src={imageSource} alt="Photo" className="photo-list__image" />
       <div className="photo-list__user-details">
         <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile" />
-        <h3>{username}</h3>
-        <p>{`${city}, ${country}`}</p>
-        <PhotoFavButton /> 
+        <div className="photo-list__user-info">
+          <h3>{username}</h3>
+          <div className="photo-list__location">{`${city}, ${country}`}</div>
+        </div>
       </div>
     </div>
   );
