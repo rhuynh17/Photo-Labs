@@ -19,8 +19,9 @@ const App = () => {
 
   return (
     <div className="App">
-            <PhotoList />
-            <TopNavigationBar />
+      <TopNavigationBar />
+      <PhotoList />
+
     </div>
   );
 };
