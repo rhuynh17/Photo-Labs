@@ -3,8 +3,6 @@ import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = ({ photo, toggleFavourite, favouritePhotos }) => {
-  console.log("favouritePhotos:", favouritePhotos);
-  console.log("photo.id:", photo.id);
   const { username, profile } = photo.user;
   const { city, country } = photo.location;
   const { regular: imageSource } = photo.urls;
