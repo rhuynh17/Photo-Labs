@@ -25,13 +25,19 @@ const App = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
+  
   return (
     <div className="App">
       <FavouritePhotosProvider>
-        <HomeRoute topics={topics} photos={photos} toggleFavourite={toggleFavourite} favouritePhotos={favouritePhotos} />
+        <HomeRoute
+          topics={topics}
+          photos={photos}
+          toggleFavourite={toggleFavourite}
+          favouritePhotos={favouritePhotos}
+          handleOpenModal={handleOpenModal}
+        />
+        {isModalOpen && <PhotoDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />}
       </FavouritePhotosProvider>
-      <PhotoDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

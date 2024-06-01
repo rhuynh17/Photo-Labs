@@ -5,9 +5,9 @@ const PhotoDetailsModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="photo-details-modal-overlay">
-      <div className="photo-details-modal">
-        {/*placeholder*/}
+    <div className="photo-details-modal">
+      <div className="photo-details-modal__content">
+        <button className="photo-details-modal__close-button" onClick={onClose}>×</button>
       </div>
     </div>
   );

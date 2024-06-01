@@ -16,7 +16,7 @@ const TopNavigationBar = ({ topics }) => {
         <div className="top-nav-bar__topic-list">
           <TopicList topics={topics} />
         </div>
-        <span className="top-nav-bar__icon">Total Liked</span>
+        <span className="top-nav-bar__icon"></span>
         <FavBadge isFavPhotoExist={isFavPhotoExist} likedPhotosCount={likedPhotosCount} />
       </div>
     </div>
