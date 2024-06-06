@@ -8,7 +8,7 @@ const PhotoListItem = ({ photo, toggleFavourite, favouritePhotos, handleOpenModa
   const { regular: imageSource } = photo.urls;
 
   const handleClick = () => {
-    handleOpenModal(); 
+    handleOpenModal(photo); 
   };
 
   return (

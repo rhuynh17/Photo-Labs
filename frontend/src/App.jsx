@@ -2,41 +2,36 @@ import React, { useState } from 'react';
 import HomeRoute from './components/HomeRoute';
 import { FavouritePhotosProvider } from './components/FavouritePhotosContext';
 import './App.scss';
-import photos from './mocks/photos';
-import topics from './mocks/topics';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
+import useApplicationData from './hooks/useApplicationData';
+
 
 const App = () => {
-  const [favouritePhotos, setFavouritePhotos] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const {
+    state,
+    toggleFavourite,
+    onPhotoSelect,
+    onClosePhotoDetailsModal,
+  } = useApplicationData();
 
-  const toggleFavourite = (photoId) => {
-    if (favouritePhotos.includes(photoId)) {
-      setFavouritePhotos(favouritePhotos.filter((id) => id !== photoId));
-    } else {
-      setFavouritePhotos([...favouritePhotos, photoId]);
-    }
-  };
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-  
   return (
     <div className="App">
       <FavouritePhotosProvider>
         <HomeRoute
-          topics={topics}
-          photos={photos}
+          topics={state.topics}
+          photos={state.photos}
           toggleFavourite={toggleFavourite}
-          favouritePhotos={favouritePhotos}
-          handleOpenModal={handleOpenModal}
+          favouritePhotos={state.favouritePhotos}
+          handleOpenModal={onPhotoSelect}
         />
-        {isModalOpen && <PhotoDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />}
+        {state.isModalOpen && (
+          <PhotoDetailsModal
+            isOpen={state.isModalOpen}
+            onClose={onClosePhotoDetailsModal}
+            photo={state.selectedPhoto}
+            similarPhotos={state.photos} 
+          />
+        )}
       </FavouritePhotosProvider>
     </div>
   );
