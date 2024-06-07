@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import photos from '../mocks/photos';
 import topics from '../mocks/topics';
 
@@ -8,8 +8,17 @@ export const ACTIONS = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
-}
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  CLOSE_PHOTO_DETAILS_MODAL: 'CLOSE_PHOTO_DETAILS_MODAL',
+};
+
+const initialState = {
+  photos: [],
+  topics: [],
+  favouritePhotos: [],
+  selectedPhoto: null,
+  isModalOpen: false,
+};
 
 function reducer(state, action) {
   switch (action.type) {
@@ -44,6 +53,12 @@ function reducer(state, action) {
         ...state,
         isModalOpen: action.payload.isModalOpen,
       };
+    case ACTIONS.CLOSE_PHOTO_DETAILS_MODAL:
+      return {
+        ...state,
+        isModalOpen: false,
+        selectedPhoto: null,
+      };
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -71,7 +86,7 @@ const useApplicationData = () => {
   };
 
   const onClosePhotoDetailsModal = () => {
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: { isModalOpen: false } });
+    dispatch({ type: ACTIONS.CLOSE_PHOTO_DETAILS_MODAL });
   };
 
   return {
