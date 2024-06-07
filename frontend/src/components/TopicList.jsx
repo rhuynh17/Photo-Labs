@@ -1,15 +1,21 @@
-import React from "react";
-import TopicListItem from "./TopicListItem";
-import "../styles/TopicList.scss";
+import React from 'react';
+import PhotoListItem from './PhotoListItem';
+import '../styles/PhotoList.scss';
 
-const TopicList = ({ topics }) => {
+const PhotoList = ({ photos, toggleFavourite, favouritePhotos, handleOpenModal }) => {
   return (
-    <div className="topic-list">
-      {topics.map((topic) => (
-        <TopicListItem key={topic.id} topic={topic} />
+    <div className="photo-list">
+      {photos.map((photo) => (
+        <PhotoListItem
+          key={photo.id}
+          photo={photo}
+          toggleFavourite={toggleFavourite}
+          favouritePhotos={favouritePhotos}
+          handleOpenModal={handleOpenModal}
+        />
       ))}
     </div>
   );
 };
 
-export default TopicList;
+export default PhotoList;

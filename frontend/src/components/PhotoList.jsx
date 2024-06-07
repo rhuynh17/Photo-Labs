@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 import PhotoListItem from './PhotoListItem';
-import "../styles/PhotoList.scss";
+import '../styles/PhotoList.scss';
 
 const PhotoList = ({ photos, toggleFavourite, favouritePhotos, handleOpenModal }) => {
   return (
-    <ul className="photo-list">
+    <div className="photo-list">
       {photos.map((photo) => (
         <PhotoListItem
           key={photo.id}
           photo={photo}
           toggleFavourite={toggleFavourite}
           favouritePhotos={favouritePhotos}
-          handleOpenModal={handleOpenModal} 
+          handleOpenModal={handleOpenModal}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

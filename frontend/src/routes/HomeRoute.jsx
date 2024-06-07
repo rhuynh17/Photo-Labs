@@ -11,7 +11,7 @@ const HomeRoute = ({ topics, photos, toggleFavourite, favouritePhotos, handleOpe
         photos={photos}
         toggleFavourite={toggleFavourite}
         favouritePhotos={favouritePhotos}
-        handleOpenModal={handleOpenModal} 
+        handleOpenModal={handleOpenModal}
       />
     </div>
   );

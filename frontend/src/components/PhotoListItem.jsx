@@ -8,17 +8,30 @@ const PhotoListItem = ({ photo, toggleFavourite, favouritePhotos, handleOpenModa
   const { regular: imageSource } = photo.urls;
 
   const handleClick = () => {
-    handleOpenModal(photo); 
+    handleOpenModal(photo);
   };
 
   return (
-    <div className="photo-list__item" key={photo.id} onClick={handleClick}> 
+    <div className="photo-list__item" key={photo.id}>
       <div className="photo-list__like-button">
-        <PhotoFavButton photoId={photo.id} toggleFavourite={toggleFavourite} isFavourite={favouritePhotos.includes(photo.id)} />
+        <PhotoFavButton
+          photoId={photo.id}
+          toggleFavourite={toggleFavourite}
+          isFavourite={favouritePhotos.includes(photo.id)}
+        />
       </div>
-      <img src={imageSource} alt="Photo" className="photo-list__image" />
+      <img
+        src={imageSource}
+        alt="Photo"
+        className="photo-list__image"
+        onClick={handleClick}
+      />
       <div className="photo-list__user-details">
-        <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile" />
+        <img
+          src={profile}
+          alt={`${username}'s profile`}
+          className="photo-list__user-profile"
+        />
         <div className="photo-list__user-info">
           <h3>{username}</h3>
           <div className="photo-list__location">{`${city}, ${country}`}</div>

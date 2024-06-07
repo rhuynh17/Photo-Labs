@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HomeRoute from './components/HomeRoute';
 import { FavouritePhotosProvider } from './components/FavouritePhotosContext';
 import './App.scss';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import useApplicationData from './hooks/useApplicationData';
-
 
 const App = () => {
   const {
@@ -29,7 +28,7 @@ const App = () => {
             isOpen={state.isModalOpen}
             onClose={onClosePhotoDetailsModal}
             photo={state.selectedPhoto}
-            similarPhotos={state.photos} 
+            similarPhotos={state.photos}
           />
         )}
       </FavouritePhotosProvider>
