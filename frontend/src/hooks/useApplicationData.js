@@ -1,8 +1,6 @@
-import { useReducer } from 'react';
-import photos from '../mocks/photos';
-import topics from '../mocks/topics';
+import { useEffect, useReducer } from 'react';
 
-export const ACTIONS = {
+const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
@@ -18,6 +16,8 @@ const initialState = {
   favouritePhotos: [],
   selectedPhoto: null,
   isModalOpen: false,
+  photoData: [],
+  topicData: []
 };
 
 function reducer(state, action) {
@@ -35,12 +35,12 @@ function reducer(state, action) {
     case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
-        photos: action.payload.photos,
+        photos: action.payload,
       };
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        topics: action.payload.topics,
+        topics: action.payload,
       };
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -67,8 +67,20 @@ function reducer(state, action) {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  }, []);
+
   const toggleFavourite = (photoId) => {
-    const photoExists = photos.some((photo) => photo.id === photoId);
+    const photoExists = state.photos.some((photo) => photo.id === photoId);
     if (!photoExists) {
       console.error(`Photo with ID ${photoId} does not exist.`);
       return;

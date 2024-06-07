@@ -1,9 +1,9 @@
 import React from 'react';
-import HomeRoute from './components/HomeRoute';
-import { FavouritePhotosProvider } from './components/FavouritePhotosContext';
+import HomeRoute from './components/HomeRoute'; 
+import { FavouritePhotosProvider } from './components/FavouritePhotosContext'; 
 import './App.scss';
-import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import useApplicationData from './hooks/useApplicationData';
+import PhotoDetailsModal from './components/PhotoDetailsModal';
+import useApplicationData from './hooks/useApplicationData'; 
 
 const App = () => {
   const {
